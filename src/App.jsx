@@ -5,6 +5,7 @@ import CoursesSection from './components/CoursesSection'
 import WhyMomentumSection from './components/WhyMomentumSection'
 import EducatorSection from './components/EducatorSection'
 import TeachingApproachSection from './components/TeachingApproachSection'
+import FAQSection from './components/FAQSection'
 import AdmissionsCTA from './components/AdmissionsCTA'
 import ContactSection from './components/ContactSection'
 import Footer from './components/Footer'
@@ -21,6 +22,7 @@ function App() {
         <WhyMomentumSection />
         <EducatorSection />
         <TeachingApproachSection />
+        <FAQSection />
         <AdmissionsCTA />
         <ContactSection />
       </main>

@@ -7,6 +7,7 @@ const navLinks = [
   { name: 'Courses', href: '#courses' },
   { name: 'Why Momentum', href: '#why-momentum' },
   { name: 'About Educator', href: '#educator' },
+  { name: 'FAQ', href: '#faq' },
   { name: 'Contact', href: '#contact' },
 ]
 
