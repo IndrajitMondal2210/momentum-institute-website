@@ -1,4 +1,7 @@
 import { GraduationCap, BookOpenCheck, Atom, Calculator } from 'lucide-react'
+import { motion } from 'framer-motion'
+
+
 
 const qualifications = [
   {
@@ -24,6 +27,29 @@ const qualifications = [
 ]
 
 export default function EducatorSection() {
+    const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.12,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 25 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: 'easeOut',
+      },
+    },
+  }
+
+
   return (
     <section id="educator" className="bg-clean py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -90,10 +116,17 @@ export default function EducatorSection() {
               habits and confidence in Mathematics and Physics.
             </p>
 
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-100px' }}
+              className="mt-8 grid gap-4 sm:grid-cols-2"
+            >
               {qualifications.map(({ icon: Icon, title, description }) => (
-                <div
+                <motion.div
                   key={title}
+                  variants={itemVariants}
                   className="rounded-2xl border border-navy-primary/10 bg-white p-5 shadow-sm"
                 >
                   <div className="grid h-10 w-10 place-items-center rounded-xl bg-clean text-electric">
@@ -107,9 +140,9 @@ export default function EducatorSection() {
                   <p className="mt-1 text-sm leading-6 text-text-muted">
                     {description}
                   </p>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
 
             <div className="mt-7 rounded-2xl border-l-4 border-accent-yellow bg-white p-5 shadow-sm">
               <p className="font-brand text-lg font-extrabold text-navy-deep">
