@@ -138,7 +138,7 @@ export default function ContactSection() {
               </p>
 
               <p className="mt-2 font-brand text-xl font-extrabold text-navy-deep">
-                Build your momentum in Physics
+                Build your momentum in Physics & Maths
               </p>
 
               <p className="mt-2 text-sm leading-6 text-text-muted">
