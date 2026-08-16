@@ -1,48 +1,32 @@
-import { Calculator, Atom, Trophy, CheckCircle2 } from 'lucide-react'
+import { CheckCircle2 } from 'lucide-react'
+import { motion } from 'framer-motion'
 
-const courses = [
-  {
-    icon: Calculator,
-    label: 'Foundation',
-    title: 'Mathematics',
-    classes: 'Classes VI–X',
-    description:
-      'Build strong mathematical fundamentals through concept clarity, structured problem solving and regular practice.',
-    points: [
-      'School syllabus support',
-      'Core concept strengthening',
-      'Problem-solving practice',
-    ],
-  },
-  {
-    icon: Atom,
-    label: 'School & Boards',
-    title: 'Physics',
-    classes: 'Classes VI–XII',
-    description:
-      'Learn Physics through clear explanations, visual reasoning, numerical practice and examination-oriented preparation.',
-    points: [
-      'Concept-focused teaching',
-      'Board examination support',
-      'Numerical problem practice',
-    ],
-  },
-  {
-    icon: Trophy,
-    label: 'Competitive',
-    title: 'Physics for NEET & JEE',
-    classes: 'Focused Preparation',
-    description:
-      'Develop the conceptual depth, analytical thinking and disciplined problem-solving approach required for competitive examinations.',
-    points: [
-      'NEET-oriented preparation',
-      'JEE-oriented problem solving',
-      'Concept and application focus',
-    ],
-  },
-]
+
+
+import { courses } from '../data/courses'
 
 export default function CoursesSection() {
+    const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.12,
+      },
+    },
+  }
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 25 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: 'easeOut',
+      },
+    },
+  }
   return (
     <section id="courses" className="bg-clean py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -61,11 +45,18 @@ export default function CoursesSection() {
           </p>
         </div>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+          className="mt-10 grid gap-6 lg:grid-cols-3"
+        >
           {courses.map(({ icon: Icon, label, title, classes, description, points }) => (
-            <article
+            <motion.article
               key={title}
-              className="group rounded-3xl border border-navy-primary/10 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+              variants={cardVariants}
+              className="group flex h-full flex-col rounded-3xl border border-navy-primary/10 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="grid h-12 w-12 place-items-center rounded-2xl bg-navy-primary text-white transition group-hover:bg-electric">
@@ -106,13 +97,13 @@ export default function CoursesSection() {
 
               <a
                 href="#contact"
-                className="mt-6 inline-flex font-extrabold text-navy-primary transition hover:text-electric focus:outline-none focus-visible:ring-2 focus-visible:ring-electric rounded"
+                className="mt-auto pt-6 inline-flex font-extrabold text-navy-primary transition hover:text-electric focus:outline-none focus-visible:ring-2 focus-visible:ring-electric rounded"
               >
                 Enquire about this course →
               </a>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
