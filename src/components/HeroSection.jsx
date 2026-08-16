@@ -229,7 +229,7 @@ export default function HeroSection() {
             <div className="relative overflow-visible rounded-[2rem] border border-navy-primary/15 bg-white p-3 shadow-2xl">
               <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-clean">
                 <img
-                  src="/images/moumita-mondal.jpg"
+                  src="/images/moumita-hero.jpeg"
                   alt="Moumita Mondal, Physics educator at Momentum Institute"
                   className="h-full w-full object-cover object-center"
                   onError={(e) => {

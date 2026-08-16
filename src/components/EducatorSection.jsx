@@ -68,7 +68,7 @@ export default function EducatorSection() {
             <div className="relative overflow-hidden rounded-[2rem] border border-navy-primary/10 bg-white p-3 shadow-xl">
               <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-white">
                 <img
-                  src="/images/moumita-mondal.jpg"
+                  src="/images/moumita-educator.jpeg"
                   alt="Moumita Mondal, educator at Momentum Institute"
                   className="h-full w-full object-cover object-center"
                   onError={(e) => {
