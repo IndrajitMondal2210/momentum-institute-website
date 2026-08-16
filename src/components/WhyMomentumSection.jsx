@@ -6,6 +6,9 @@ import {
   LineChart,
   BookMarked,
 } from 'lucide-react'
+import { motion } from 'framer-motion'
+
+
 
 const features = [
   {
@@ -47,6 +50,29 @@ const features = [
 ]
 
 export default function WhyMomentumSection() {
+    const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.12,
+      },
+    },
+  }
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 25 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: 'easeOut',
+      },
+    },
+  }
+
+
   return (
     <section id="why-momentum" className="bg-white py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -76,10 +102,17 @@ export default function WhyMomentumSection() {
             </div>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+            className="grid gap-5 sm:grid-cols-2"
+          >
             {features.map(({ icon: Icon, title, description }) => (
-              <article
+              <motion.article
                 key={title}
+                variants={cardVariants}
                 className="rounded-3xl border border-navy-primary/10 bg-clean p-6 transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-lg"
               >
                 <div className="grid h-11 w-11 place-items-center rounded-2xl bg-white text-electric shadow-sm">
@@ -93,9 +126,9 @@ export default function WhyMomentumSection() {
                 <p className="mt-3 leading-7 text-text-muted">
                   {description}
                 </p>
-              </article>
+              </motion.article>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
