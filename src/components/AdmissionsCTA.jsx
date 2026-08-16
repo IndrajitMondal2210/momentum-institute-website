@@ -1,4 +1,6 @@
 import { ArrowRight, PhoneCall } from 'lucide-react'
+import { motion } from 'framer-motion'
+
 
 export default function AdmissionsCTA() {
   return (
@@ -15,7 +17,13 @@ export default function AdmissionsCTA() {
             className="absolute -bottom-20 right-20 h-64 w-64 rounded-full bg-electric/20 blur-3xl"
           />
 
-          <div className="relative grid items-center gap-8 lg:grid-cols-[1fr_auto]">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.6 }}
+            className="relative grid items-center gap-8 lg:grid-cols-[1fr_auto]"
+          >
             <div>
               <div className="flex flex-wrap gap-2">
                 <span className="rounded-full bg-accent-red px-3 py-1 text-sm font-extrabold">
@@ -54,7 +62,7 @@ export default function AdmissionsCTA() {
                 Call Now
               </a>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
