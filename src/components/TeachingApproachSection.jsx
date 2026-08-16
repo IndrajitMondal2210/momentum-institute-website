@@ -1,4 +1,6 @@
 import { Search, Lightbulb, PenTool, Repeat2, TrendingUp } from 'lucide-react'
+import { motion } from 'framer-motion'
+
 
 const steps = [
   {
@@ -39,6 +41,30 @@ const steps = [
 ]
 
 export default function TeachingApproachSection() {
+    const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.12,
+      },
+    },
+  }
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 25 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: 'easeOut',
+      },
+    },
+  }
+
+
+
   return (
     <section className="bg-white py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -57,10 +83,17 @@ export default function TeachingApproachSection() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-5">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+          className="mt-12 grid gap-5 md:grid-cols-5"
+        >
           {steps.map(({ icon: Icon, number, title, description }) => (
-            <article
+            <motion.article
               key={number}
+              variants={cardVariants}
               className="relative rounded-3xl border border-navy-primary/10 bg-clean p-5 transition duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
               <div className="flex items-center justify-between">
@@ -80,9 +113,9 @@ export default function TeachingApproachSection() {
               <p className="mt-3 text-sm leading-6 text-text-muted">
                 {description}
               </p>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
