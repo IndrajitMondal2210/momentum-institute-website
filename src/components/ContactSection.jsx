@@ -1,11 +1,18 @@
 import { MapPin, Phone, MessageCircle, Clock3 } from 'lucide-react'
+import { motion } from 'framer-motion'
+
 
 export default function ContactSection() {
   return (
     <section id="contact" className="bg-white py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.6 }}
+          >
             <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-electric">
               Contact
             </p>
@@ -35,6 +42,15 @@ export default function ContactSection() {
                     <br />
                     Rajarhat, Kolkata, West Bengal 700136
                   </p>
+
+                  <a
+                    href="https://maps.app.goo.gl/zPmrQNAuBPRkNp8B7"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-2 inline-flex font-semibold text-electric transition hover:text-navy-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-electric rounded"
+                  >
+                    View on Google Maps →
+                  </a>
                 </div>
               </div>
 
@@ -74,9 +90,15 @@ export default function ContactSection() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="rounded-[2rem] border border-navy-primary/10 bg-clean p-6 shadow-sm sm:p-8">
+          <motion.div
+            initial={{ opacity: 0, x: 25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="rounded-[2rem] border border-navy-primary/10 bg-clean p-6 shadow-sm sm:p-8"
+          >            
             <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-electric">
               Quick Contact
             </p>
@@ -124,7 +146,7 @@ export default function ContactSection() {
                 NEET & JEE preparation.
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
