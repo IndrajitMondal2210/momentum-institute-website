@@ -70,7 +70,7 @@ export default function Navbar() {
               Momentum Institute
             </div>
             <div className="text-xs text-text-muted">
-              Build your momentum in Physics
+              Build your momentum in Physics & Maths
             </div>
           </div>
         </a>
