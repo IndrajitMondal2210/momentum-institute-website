@@ -111,7 +111,7 @@ export default function EducatorSection() {
 
             <p className="mt-5 text-base leading-7 text-text-muted sm:text-lg">
               With a strong academic background in Physics and professional
-              training in education, Moumita Mondal focuses on helping
+              training in education, Moumita Ma'am focuses on helping
               students build conceptual clarity, disciplined problem-solving
               habits and confidence in Mathematics and Physics.
             </p>
